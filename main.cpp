@@ -22,19 +22,17 @@ int main() {
     	cap.voltage[0] = 0.0;
     	cap.current[0] = I;
 
+	cap.time[0] = 0.0;
+        cap.voltage[0] = 0.0;
+        cap.current[0] = V0 / R;
+
+	simulateConstantVoltage(cap, V0, R, dt, numSteps);
+        std::cout << "\nConstant Voltage Case:" << std::endl;
+        printResults(cap, numSteps, 200);
+
 
 	simulateConstantCurrent(cap, I, dt, numSteps);
     	std::cout << "Constant Current Case:" << std::endl;
-    	printResults(cap, numSteps, 200);
-
-
-	cap.time[0] = 0.0;
-    	cap.voltage[0] = 0.0;
-    	cap.current[0] = V0 / R;
-
-
-	simulateConstantVoltage(cap, V0, R, dt, numSteps);
-    	std::cout << "\nConstant Voltage Case:" << std::endl;
     	printResults(cap, numSteps, 200);
 
 
